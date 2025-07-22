@@ -1,8 +1,8 @@
 # go-json
 
-![Go](https://github.com/goccy/go-json/workflows/Go/badge.svg)
-[![GoDoc](https://godoc.org/github.com/goccy/go-json?status.svg)](https://pkg.go.dev/github.com/goccy/go-json?tab=doc)
-[![codecov](https://codecov.io/gh/goccy/go-json/branch/master/graph/badge.svg)](https://codecov.io/gh/goccy/go-json)
+![Go](https://github.com/going/json/workflows/Go/badge.svg)
+[![GoDoc](https://godoc.org/github.com/going/json?status.svg)](https://pkg.go.dev/github.com/going/json?tab=doc)
+[![codecov](https://codecov.io/gh/going/json/branch/master/graph/badge.svg)](https://codecov.io/gh/going/json)
 
 Fast JSON encoder/decoder compatible with encoding/json for Go
 
@@ -22,12 +22,12 @@ Fast JSON encoder/decoder compatible with encoding/json for Go
 ```
 
 We are accepting requests for features that will be implemented between v0.9.0 and v.1.0.0.
-If you have the API you need, please submit your issue [here](https://github.com/goccy/go-json/issues).
+If you have the API you need, please submit your issue [here](https://github.com/going/json/issues).
 
 # Features
 
 - Drop-in replacement of `encoding/json`
-- Fast ( See [Benchmark section](https://github.com/goccy/go-json#benchmarks) )
+- Fast ( See [Benchmark section](https://github.com/going/json#benchmarks) )
 - Flexible customization with options
 - Coloring the encoded string
 - Can propagate context.Context to `MarshalJSON` or `UnmarshalJSON`
@@ -36,16 +36,16 @@ If you have the API you need, please submit your issue [here](https://github.com
 # Installation
 
 ```
-go get github.com/goccy/go-json
+go get github.com/going/json
 ```
 
 # How to use
 
-Replace import statement from `encoding/json` to `github.com/goccy/go-json`
+Replace import statement from `encoding/json` to `github.com/going/json`
 
 ```
 -import "encoding/json"
-+import "github.com/goccy/go-json"
++import "github.com/going/json"
 ```
 
 # JSON library comparison
@@ -59,7 +59,7 @@ Replace import statement from `encoding/json` to `github.com/goccy/go-json`
 | [segmentio/encoding/json](https://github.com/segmentio/encoding/tree/master/json) | yes | yes | partial |
 | [jettison](https://github.com/wI2L/jettison) | yes | no | no |
 | [simdjson-go](https://github.com/minio/simdjson-go) | no | yes | no |
-| goccy/go-json | yes | yes | yes |
+| going/json | yes | yes | yes |
 
 - `json-iterator/go` isn't compatible with `encoding/json` in many ways (e.g. https://github.com/json-iterator/go/issues/229 ), but it hasn't been supported for a long time.
 - `segmentio/encoding/json` is well supported for encoders, but some are not supported for decoder APIs such as `Token` ( streaming decode )
@@ -98,8 +98,8 @@ $ go test -bench .
 
 # Fuzzing
 
-[go-json-fuzz](https://github.com/goccy/go-json-fuzz) is the repository for fuzzing tests.
-If you run the test in this repository and find a bug, please commit to corpus to go-json-fuzz and report the issue to [go-json](https://github.com/goccy/go-json/issues).
+[go-json-fuzz](https://github.com/going/json-fuzz) is the repository for fuzzing tests.
+If you run the test in this repository and find a bug, please commit to corpus to go-json-fuzz and report the issue to [go-json](https://github.com/going/json/issues).
 
 # How it works
 
@@ -192,7 +192,7 @@ For this reason, to date `reflect.Type` is the same as `*reflect.rtype`.
 
 Therefore, by directly handling `*reflect.rtype`, which is an implementation of `reflect.Type`, it is possible to avoid escaping because it changes from `interface` to using `struct`.
 
-The technique for working with `*reflect.rtype` directly from `go-json` is implemented at [rtype.go](https://github.com/goccy/go-json/blob/master/internal/runtime/rtype.go)
+The technique for working with `*reflect.rtype` directly from `go-json` is implemented at [rtype.go](https://github.com/going/json/blob/master/internal/runtime/rtype.go)
 
 Also, the same technique is cut out as a library ( https://github.com/goccy/go-reflect )
 
@@ -353,7 +353,7 @@ However, if there is too much type information, it will use a lot of memory, so 
 
 If this approach is not available, it will fall back to the `atomic` based process described above.
 
-If you want to know more, please refer to the implementation [here](https://github.com/goccy/go-json/blob/master/internal/runtime/type.go#L36-L100)
+If you want to know more, please refer to the implementation [here](https://github.com/going/json/blob/master/internal/runtime/type.go#L36-L100)
 
 ## Decoder
 

@@ -7,7 +7,13 @@ import (
 )
 
 func getTag(field reflect.StructField) string {
-	return field.Tag.Get("json")
+	if val := field.Tag.Get("json"); val != "" {
+		return val
+	}
+	if val := field.Tag.Get("db"); val != "" {
+		return val
+	}
+	return ""
 }
 
 func IsIgnoredStructField(field reflect.StructField) bool {

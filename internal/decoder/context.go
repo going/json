@@ -4,7 +4,7 @@ import (
 	"sync"
 	"unsafe"
 
-	"github.com/goccy/go-json/internal/errors"
+	"github.com/going/json/internal/errors"
 )
 
 type RuntimeContext struct {

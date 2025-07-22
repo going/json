@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/goccy/go-json/internal/errors"
-	"github.com/goccy/go-json/internal/runtime"
+	"github.com/going/json/internal/errors"
+	"github.com/going/json/internal/runtime"
 )
 
 type invalidDecoder struct {
